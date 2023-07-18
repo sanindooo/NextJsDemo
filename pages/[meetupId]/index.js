@@ -45,8 +45,10 @@ export async function getStaticPaths() {
 	return {
 		// fallback - lets next if your paths contains all supported params of just some of them.
 		// false - paths: contains all meetupId values.
-		// true - next tries to create a new path dynamically based on the request.
-		fallback: false,
+		// true - next tries to create a new path dynamically based on the request. Immediately 
+		// pulls the page and populates it dynamically with the data so this lag needs to be handled
+		// blocking - there might be more fallback pages. Only navigates to the page when it's fully ready 
+		fallback: 'blocking',
 		// paths object defines what paths should be pregenerated using the page ID param
 		paths: meetups.map((meetup) => ({
 			params: { meetupId: meetup._id.toString() },

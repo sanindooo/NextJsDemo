@@ -107,7 +107,7 @@ export async function getStaticProps() {
 		// number of seconds next waits before regenerating the results.
 		// server regenerates this every 10 seconds if requests are coming for this page.
 		// you now don't have to redeploy and rebuild for each time data changes.
-		revalidate: 60,
+		revalidate: 10,
 	};
 }
 
